@@ -1,0 +1,198 @@
+@layer base {
+  /* Fonts */
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+  :root {
+    /* ============================= */
+    /* 🎨 Colors (Base Palette)      */
+    /* ============================= */
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+
+    --color-blue-100: #f8faff;
+    --color-blue-200: #b8bfd6;
+    --color-blue-300: #959cb1;
+    --color-blue-400: #747f92;
+    --color-blue-500: #405075;
+    --color-blue-600: #283965;
+    --color-blue-700: #10183f;
+    --color-blue-800: #0a1136;
+    --color-blue-900: #050726;
+
+    --color-brand-primary: light-dark(
+      oklch(45% 0.075 262),
+      oklch(70% 0.08 262)
+    );
+    --color-brand-accent: light-dark(oklch(70% 0.17 320), oklch(80% 0.15 320));
+    --color-status-success: light-dark(
+      oklch(65% 0.14 155),
+      oklch(72% 0.14 155)
+    );
+    --color-status-warning: light-dark(oklch(80% 0.18 80), oklch(75% 0.18 80));
+    --color-status-error: light-dark(oklch(60% 0.2 25), oklch(70% 0.2 25));
+
+    --color-backdrop: light-dark(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5));
+
+    /* Pages and surfaces colors */
+    --color-bg-page: light-dark(oklch(98% 0.01 250), oklch(12% 0.01 250));
+
+    /* Surface colors */
+    --color-bg-surface-1: light-dark(oklch(92% 0.01 250), oklch(18% 0.01 250));
+
+    /* Contrasts */
+    --color-primary-contrast: light-dark(
+      oklch(98% 0.01 250),
+      oklch(12% 0.01 250)
+    );
+
+    /* Color transitions */
+    --color-transition:
+      background-color var(--duration-fast) linear,
+      color var(--duration-fast) linear,
+      border-color var(--duration-fast) linear,
+      outline-color var(--duration-fast) linear,
+      fill var(--duration-fast) linear, stroke var(--duration-fast) linear;
+
+    /* Button colors */
+    --color-button-bg-primary: var(--color-brand-primary);
+    --color-button-bg-hover-primary: var(--color-blue-600);
+    --color-button-bg-disabled: var(--color-gray-200);
+    --color-button-text-primary: var(--color-white);
+    --color-button-text-secondary: var(--color-text-inverse);
+    --color-button-border-secondary: var(--color-brand-primary);
+
+    /* Border colors */
+    --color-border: light-dark(oklch(85% 0.02 250), oklch(26% 0.02 250));
+    --color-border-disabled: var(--color-gray-300);
+    --color-bg-pagination-inactive: light-dark(
+      transparent,
+      oklch(98% 0.01 250)
+    );
+    --color-border-pagination-inactive: light-dark(
+      oklch(45% 0.075 262),
+      transparent
+    );
+
+    /* Input colors*/
+    --color-input-focus: light-dark(
+      var(--color-blue-900),
+      var(--color-blue-400)
+    );
+
+    /* Text Colors*/
+    --color-text: light-dark(oklch(20% 0.01 260), oklch(92% 0.01 260));
+    --color-text-inverse: light-dark(oklch(12% 0.01 250), oklch(98% 0.01 250));
+    --color-text-disabled: var(--color-gray-400);
+
+    /* Link colors*/
+    --color-text-link: light-dark(oklch(50% 0.12 262), oklch(75% 0.1 262));
+    --link-text: var(--color-text-link);
+    --link-text-hover: var(--color-brand-accent);
+
+    /* ============================= */
+    /* 📏 Spacing (4px scale → rem)  */
+    /* ============================= */
+    --space-0: 0rem;
+    --space-1: 0.25rem; /* 4px */
+    --space-2: 0.5rem; /* 8px */
+    --space-3: 0.75rem; /* 12px */
+    --space-4: 1rem; /* 16px */
+    --space-5: 1.25rem; /* 20px */
+    --space-6: 1.5rem; /* 24px */
+    --space-8: 2rem; /* 32px */
+    --space-10: 2.5rem; /* 40px */
+    --space-12: 3rem; /* 48px */
+    --space-16: 4rem; /* 64px */
+    --space-20: 5rem; /* 80px */
+    --space-24: 6rem; /* 96px */
+
+    /* ============================= */
+    /* 🖋 Typography                 */
+    /* ============================= */
+    --font-sans:
+      "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial;
+
+    --font-size-3xs: 0.25rem; /* 4px */
+    --font-size-2xs: 0.5rem; /* 8px */
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-md: 1rem; /* 16px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-xl: 1.5rem; /* 24px */
+    --font-size-2xl: 2rem; /* 32px */
+    --font-size-3xl: 3rem; /* 48px */
+
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-tight: 1.2; /* unitless */
+    --line-height-normal: 1.5; /* unitless */
+    --line-height-loose: 1.8; /* unitless */
+
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0em;
+    --letter-spacing-wide: 0.05em;
+
+    /* ============================= */
+    /* 🔲 Borders                    */
+    /* ============================= */
+    --radius-sm: 0.125rem; /* 2px */
+    --radius-md: 0.25rem; /* 4px */
+    --radius-lg: 0.5rem; /* 8px */
+    --radius-xl: 0.75rem; /* 12px */
+    --radius-2xl: 1rem; /* 12px */
+    --radius-full: 9999px; /* fixed pill/circle */
+
+    --border-width-thin: 1px;
+    --border-width-thick: 2px;
+
+    /* ============================= */
+    /* 🖼 Shadows / Elevation         */
+    /* ============================= */
+    --shadow-sm: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
+    --shadow-md: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+    --shadow-sms: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+
+    /* ============================= */
+    /* ⚡ Motion                      */
+    /* ============================= */
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+
+    --easing-linear: linear;
+    --easing-in: cubic-bezier(0.4, 0, 1, 1);
+    --easing-out: cubic-bezier(0, 0, 0.2, 1);
+    --easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Dark theme (toggle html[data-theme="dark"]) */
+  html[data-theme="dark"] {
+    --bg: #0b0f17;
+    --panel: #111827;
+    /* --text: #e6eaf2; */
+    --muted: #9aa4c3;
+
+    /* brand shifts a touch brighter on dark */
+    --brand-600: #405075;
+    --brand-700: #283965;
+  }
+}

@@ -1,0 +1,57 @@
+@import "./layers.css";
+@import "./tokens.css";
+
+/* ---------- RESET ---------- */
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+  }
+  img,
+  svg {
+    max-inline-size: 100%;
+    block-size: auto;
+    display: block;
+  }
+}
+
+/* ---------- TOKENS (LIGHT) ---------- */
+@layer base {
+  html,
+  body {
+    color-scheme: light dark;
+    background: var(--color-bg-page);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-md);
+  }
+
+  a {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  /* :focus-visible { outline: 2px solid var(--brand-600); outline-offset: 2px; } */
+}
+
+/* Print-friendly (secretary exports) */
+@media print {
+  nav,
+  aside {
+    display: none !important;
+  }
+  body {
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+}

@@ -1,0 +1,14 @@
+@layer components {
+  .root {
+    background-color: var(--color-bg-page);
+    transition: var(--color-transition);
+    display: grid;
+    grid-template-areas:
+      "sidebar header header "
+      "sidebar actions actions"
+      "sidebar content content";
+
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: auto 1fr 1fr;
+  }
+}

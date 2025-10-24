@@ -1,0 +1,13 @@
+@layer components {
+  .root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  .action-container {
+    margin-top: var(--space-3);
+  }
+}

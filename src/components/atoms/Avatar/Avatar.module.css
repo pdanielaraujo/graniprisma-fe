@@ -1,0 +1,13 @@
+@layer components {
+  figure {
+    background-color: red;
+    border-radius: var(--radius-full);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0;
+  }
+}

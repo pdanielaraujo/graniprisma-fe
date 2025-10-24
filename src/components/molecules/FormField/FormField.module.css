@@ -1,0 +1,15 @@
+@layer components {
+  .form-field-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .form-field-label {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .required {
+    color: var(--color-danger);
+  }
+}

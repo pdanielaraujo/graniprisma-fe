@@ -1,0 +1,42 @@
+@layer components {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    margin-bottom: var(--space-12);
+  }
+
+  .home-icon {
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      background-color: var(--color-primary-contrast);
+    }
+  }
+
+  .header-icons-wrapper {
+    width: 32px;
+    /* height: 32px; */
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+
+    &:hover {
+      background-color: var(--color-primary-contrast);
+    }
+
+    &.toggle-icon {
+      cursor: ew-resize;
+    }
+  }
+
+  .toggle-icon {
+    size: var(--space-4);
+    color: var(--color-text);
+  }
+}

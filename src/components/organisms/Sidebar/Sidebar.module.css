@@ -1,0 +1,77 @@
+@layer components {
+  :root {
+    --full-col: 280px;
+    --icon-col: 48px;
+    --ease-in: 750ms cubic-bezier(0.2, 0.7, 0.3, 1);
+    --ease-out: 250ms cubic-bezier(0.2, 0.7, 0.3, 1);
+    --ease-text: 15250ms cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  .sidebar-root {
+    background-color: var(--color-bg-surface-1);
+    height: 100vh;
+    padding: var(--space-2);
+    width: var(--full-col);
+    transition:
+      width var(--ease-in),
+      var(--color-transition);
+    border: var(--border-width-thin) solid #0d0d0d0d;
+  }
+
+  .sidebar-root.collapsed {
+    width: var(--icon-col);
+    transition: width var(--ease-out);
+  }
+
+  .sidebar-root.collapsed a > span {
+    transition:
+      max-width var(--ease-out),
+      opacity var(--ease-out),
+      transform var(--ease-out);
+    max-width: 0;
+    opacity: 0;
+    transform: scaleX(0.95);
+  }
+
+  nav > ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    list-style: none;
+  }
+
+  a {
+    display: grid;
+    grid-template-columns: 16px 1fr; /* icon stays fixed */
+    align-items: center;
+    gap: var(--space-4);
+    text-decoration: none;
+    /* color: inherit; */
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-2);
+    /* DO NOT center the whole row; that made the icon move */
+  }
+
+  a:hover {
+    background-color: var(--color-primary-contrast);
+  }
+
+  /* Label collapses smoothly; do not use display:none (it causes layout jump) */
+  a > span {
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--color-text);
+
+    max-width: calc(var(--full-col) - var(--icon-col) - var(--space-4));
+    transition:
+      max-width var(--ease-in),
+      opacity var(--ease-in),
+      transform var(--ease-in);
+    transform-origin: left center;
+  }
+
+  a > svg {
+    color: var(--color-text);
+  }
+}

@@ -1,0 +1,69 @@
+@layer components {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+
+  .arrow-container {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: var(--color-bg-pagination-inactive);
+    cursor: pointer;
+    height: var(--space-6);
+    width: var(--space-6);
+    border-radius: var(--radius-md);
+    color: var(--color-button-bg-disabled);
+
+    &:disabled {
+      cursor: not-allowed;
+      > .arrow {
+        color: var(--color-border-disabled);
+      }
+    }
+  }
+
+  .arrow {
+    color: var(--color-brand-primary);
+    height: var(--space-6);
+    width: var(--space-6);
+  }
+
+  .inactive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--color-brand-primary);
+    width: var(--space-8);
+    height: var(--space-8);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: oklch(20% 0.01 260);
+    background-color: var(--color-bg-pagination-inactive);
+  }
+
+  .active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    width: var(--space-8);
+    height: var(--space-8);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    background-color: var(--color-brand-primary);
+    color: var(--color-white);
+  }
+
+  .ellipsis {
+    display: flex;
+    justify-content: center;
+    height: var(--space-8);
+    width: var(--space-8);
+    color: var(--color-text);
+    cursor: default;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+}
