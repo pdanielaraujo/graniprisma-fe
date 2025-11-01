@@ -82,12 +82,13 @@ const defaultData: TPerson[] = [
 ];
 
 import { Button } from "@atoms/Button";
-import { Input } from "@atoms/Input";
 import { Select } from "@atoms/Select";
+import { useIsMobile } from "@hooks/useIsMobile";
 import { useOpenDialog } from "@hooks/useOpenDialog";
 import { useOpenModal } from "@hooks/useOpenModal";
 import { Dialog } from "@molecules/Dialog";
 import { FormField } from "@molecules/FormField";
+import { SearchInput } from "@molecules/SearchInput";
 import { DataTable } from "@organisms/DataTable";
 import { Grid } from "@organisms/Grid";
 import { GridItem } from "@organisms/GridItem";
@@ -101,7 +102,7 @@ import { useMemo, useState } from "react";
 function App() {
   const [current, setCurrent] = useState(1);
   const columns = useMemo(() => PERSON_COLUMNS, []);
-
+  const isMobile = useIsMobile();
   const { dialogRef, closeDialog, openDialog } = useOpenDialog();
   const { modalRef, closeModal, openModal } = useOpenModal();
 
@@ -136,9 +137,14 @@ function App() {
 
   //   ref.current.classList.toggle("open");
   // };
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      console.log("Search for:", e.currentTarget.value);
+    }
+  };
 
   return (
-    <div>
+    <>
       <ManagementTemplate
         actions={
           <ManagementActionsSection
@@ -148,13 +154,12 @@ function App() {
                 <Select options={[]} />
               </>
             }
-            searchSection={<Input variant="default_input" type="search" />}
+            searchSection={
+              <SearchInput handleSearchKeyDown={handleSearchKeyDown} />
+            }
             createButton={
               <>
                 <Button onClick={openModal}>Create</Button>
-                <Button onClick={openModal} variant="secondary">
-                  Cancel
-                </Button>
               </>
             }
           />
@@ -231,7 +236,7 @@ function App() {
             <GridItem>
               <FormField label="Email" name="Email" />
             </GridItem>
-            <GridItem colSpan={2}>
+            <GridItem colSpan={!isMobile ? 2 : 1}>
               <FormField label="Telefone" name="Telefone" />
             </GridItem>
             <GridItem>
@@ -277,7 +282,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>  */}
-    </div>
+    </>
   );
 }
 

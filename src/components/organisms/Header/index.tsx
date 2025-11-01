@@ -1,7 +1,12 @@
 import { Avatar } from "@atoms/Avatar";
+import { useIsMobile } from "@hooks/useIsMobile";
+import { DropdownMenu } from "@molecules/DropdownMenu";
+import { VscMenu } from "react-icons/vsc";
 import styles from "./Header.module.css";
 
 export const Header = () => {
+  const isMobile = useIsMobile();
+
   const rootElement = document.getElementById("root");
 
   if (!rootElement) {
@@ -26,10 +31,34 @@ export const Header = () => {
   //   : changeToDarkMode();
   return (
     <div className={styles["header-root"]}>
-      header <Avatar />
       <button onClick={changeToAutoMode}>Auto</button>
       <button onClick={changeToLightMode}>Light</button>
       <button onClick={changeToDarkMode}>Dark</button>
+      {isMobile && (
+        <DropdownMenu
+          items={[
+            { action: () => console.log("Perfil"), label: "Perfil" },
+            { action: () => console.log("Definições"), label: "Definições" },
+            {
+              action: () => console.log("Terminar sessão"),
+              label: "Terminar sessão",
+            },
+          ]}
+          opener={<VscMenu />}
+        />
+      )}
+      <DropdownMenu
+        items={[
+          { action: () => console.log("Perfil"), label: "Perfil" },
+          { action: () => console.log("Definições"), label: "Definições" },
+          {
+            action: () => console.log("Terminar sessão"),
+            label: "Terminar sessão",
+          },
+        ]}
+        opener={<Avatar />}
+        isNavigationMenu={true}
+      />
     </div>
   );
 };

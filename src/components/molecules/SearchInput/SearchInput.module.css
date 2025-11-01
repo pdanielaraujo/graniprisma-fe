@@ -1,0 +1,14 @@
+@layer components {
+  .search-input-root {
+    position: relative;
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: var(--space-2);
+    color: var(--color-text);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}

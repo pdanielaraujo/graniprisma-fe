@@ -32,6 +32,7 @@
     background: var(--color-bg-page);
     font-family: var(--font-sans);
     font-size: var(--font-size-md);
+    transition: var(--color-transition) !important;
   }
 
   a {

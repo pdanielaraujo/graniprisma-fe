@@ -1,5 +1,6 @@
 @layer components {
   .root {
+    height: inherit;
     background-color: var(--color-bg-page);
     transition: var(--color-transition);
     display: grid;

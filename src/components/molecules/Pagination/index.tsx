@@ -11,8 +11,6 @@ export const Pagination = ({
   onChangeCurrent,
   total,
 }: TPaginationProps) => {
-  console.count("Pagination");
-
   const isMobile = useIsMobile();
 
   const maxPagesShownByWindowSize = isMobile

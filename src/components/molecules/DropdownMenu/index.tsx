@@ -1,9 +1,13 @@
+import { Link } from "@tanstack/react-router";
 import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./DropdownMenu.module.css";
 import type { TMenuProps } from "./types";
 
-export const DropdownMenu = ({ items, opener }: TMenuProps) => {
-  console.count("DropdownMenu");
+export const DropdownMenu = ({
+  items,
+  opener,
+  isNavigationMenu,
+}: TMenuProps) => {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useRef<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -66,11 +70,19 @@ export const DropdownMenu = ({ items, opener }: TMenuProps) => {
         className={[styles.menu, openStyle, alignStyle].join(" ")}
         ref={menuRef}
       >
-        {items.map(({ action, label }) => (
-          <button className={styles["menu-item"]} onClick={action}>
-            {label}
-          </button>
-        ))}
+        {items.map(({ action, label }) =>
+          isNavigationMenu ? (
+            <div className={styles["menu-item"]}>
+              <Link to=".">
+                <span>{label}</span>
+              </Link>
+            </div>
+          ) : (
+            <button className={styles["menu-item"]} onClick={action}>
+              {label}
+            </button>
+          ),
+        )}
       </menu>
     </div>
   );

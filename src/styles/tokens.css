@@ -49,6 +49,7 @@
 
     /* Surface colors */
     --color-bg-surface-1: light-dark(oklch(92% 0.01 250), oklch(18% 0.01 250));
+    --color-bg-surface-2: light-dark(oklch(86% 0.01 250), oklch(24% 0.01 250));
 
     /* Contrasts */
     --color-primary-contrast: light-dark(

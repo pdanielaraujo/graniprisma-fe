@@ -1,6 +1,7 @@
 import { Button } from "@atoms/Button";
 import { Typography } from "@atoms/Typography";
 import { BUTTON_VARIANTS } from "@constants/variants";
+import { useIsMobile } from "@hooks/useIsMobile";
 import styles from "./Modal.module.css";
 import type { TDialogProps } from "./types";
 
@@ -12,6 +13,8 @@ export const Modal = ({
   ref,
   title,
 }: TDialogProps) => {
+  const isMobile = useIsMobile();
+
   const handleCancelAction = () => {
     if (!ref.current) {
       return;
@@ -30,7 +33,12 @@ export const Modal = ({
   };
 
   return (
-    <dialog id="modal" closedby="none" ref={ref} className={styles.root}>
+    <dialog
+      id="modal"
+      closedby="none"
+      ref={ref}
+      className={`${styles.root} ${isMobile ? styles.mobile : ""}`}
+    >
       <div className={styles.header}>
         <Typography variant="heading4">{title}</Typography>
         {description && (

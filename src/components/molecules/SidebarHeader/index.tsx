@@ -15,14 +15,15 @@ export const SidebarHeader = ({
     [],
   );
 
-  const handleCollapseSideBar = () => setIsCollapsed(true);
+  const handleCollapseSideBar = () => setIsCollapsed?.(true);
   const handleExpandSideBar = () => {
     setIsHovered(false);
-    setIsCollapsed(false);
+    setIsCollapsed?.(false);
   };
 
-  const handleMouseEnter = () => isCollapsed && setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
+  const handleMouseEnter = () =>
+    !!setIsCollapsed && isCollapsed && setIsHovered(true);
+  const handleMouseLeave = () => !!setIsCollapsed && setIsHovered(false);
 
   return (
     <div className={styles.header}>

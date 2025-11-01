@@ -3,9 +3,14 @@
     background-color: var(--color-bg-surface-1);
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     height: 64px;
-    padding: var(--space-2);
+    padding: var(--space-2) var(--space-4);
     width: 100%;
     transition: var(--color-transition);
+  }
+
+  svg {
+    color: var(--color-text);
   }
 }

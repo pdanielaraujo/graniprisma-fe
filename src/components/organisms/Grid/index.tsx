@@ -1,3 +1,4 @@
+import { useIsMobile } from "@hooks/useIsMobile";
 import type { TGridProps } from "./types";
 
 export const Grid = ({
@@ -6,11 +7,17 @@ export const Grid = ({
   gap = "1rem",
   style,
 }: TGridProps) => {
+  const isMobile = useIsMobile();
+
+  const gridTemplateColumns = isMobile
+    ? "1fr"
+    : `repeat(${columns.toString()}, 1fr)`;
+
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: `repeat(${columns.toString()}, 1fr)`,
+        gridTemplateColumns,
         gap,
         ...style,
       }}

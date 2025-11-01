@@ -54,7 +54,6 @@
   tbody tr {
     background-color: transparent;
     color: var(--color-text);
-    transition: var(--color-transition);
   }
 
   tbody tr:nth-child(odd) {
