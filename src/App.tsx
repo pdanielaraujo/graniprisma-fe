@@ -105,7 +105,7 @@ function App() {
   const isMobile = useIsMobile();
   const { dialogRef, closeDialog, openDialog } = useOpenDialog();
   const { modalRef, closeModal, openModal } = useOpenModal();
-  console.log("teste");
+
   const handleChangeCurrentPage = (page: number) => {
     setCurrent(page);
   };
